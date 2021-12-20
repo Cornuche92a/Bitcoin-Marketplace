@@ -1,0 +1,14 @@
+version: "2"
+plugins:
+  duplication:
+    enabled: true
+    config:
+      languages:
+        - php
+  fixme:
+    enabled: true
+  phpmd:
+    enabled: true
+exclude_patterns:
+- "tests/"
+- "docs/"

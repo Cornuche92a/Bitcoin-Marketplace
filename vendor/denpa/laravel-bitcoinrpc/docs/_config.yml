@@ -1,0 +1,127 @@
+remote_theme: "mmistakes/minimal-mistakes"
+repository: "denpa/laravel-bitcoinrpc"
+minimal_mistakes_skin: "mint"
+title: "laravel-bitcoinrpc"
+title_separator: ":"
+url: "https://laravel-bitcoinrpc.denpa.pro"
+baseurl: "/"
+name: "Denis Paavilainen"
+encoding: "utf-8"
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+
+include:
+  - _pages
+exclude:
+  - Gemfile
+  - Gemfile.lock
+
+# Search
+search: true
+search_full_content: true
+
+# Author
+author:
+  name: "Denis Paavilainen"
+  avatar: "/assets/images/logo.svg"
+  bio: "My PGP key: https://pgp.denpa.pro/ Fingerprint = B371 A23C C449 703F F1BF 0927 9CF6 463C BF75 37E8"
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/denpamusic"
+    - label: "Reddit"
+      icon: "fab fa-fw fa-reddit"
+      url: "https://reddit.com/user/denpamusic"
+    - label: "Keybase"
+      icon: "fab fa-fw fa-keybase"
+      url: "https://keybase.io/denpa"
+
+defaults:
+  #_pages
+  - scope:
+      path: "_pages"
+      type: pages
+    values:
+      layout: single
+      classes: wide
+      author_profile: true
+  #_docs
+  - scope:
+      path: ""
+      type: docs
+    values:
+      layout: single
+      sidebar:
+        nav: "docs"
+  #_posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: release
+
+# Footer
+footer:
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/denpamusic/laravel-bitcoinrpc"
+    - label: "Gitter"
+      icon: "fab fa-fw fa-gitter"
+      url: "https://gitter.im/laravel-bitcoinrpc/Lobby"
+
+# Output
+permalink: /release/:title
+timezone: Europe/Moscow
+
+# Collections
+collections:
+  docs:
+    output: true
+    permalink: /:collection/:path/
+
+# Feed
+atom_feed:
+  path: "https://feeds.feedburner.com/laravel-bitcoinrpc"
+feed:
+  path: "releases.xml"
+
+# Conversion
+markdown: kramdown
+highlighter: rouge
+lsi: false
+excerpt_separator: "\n\n"
+incremental: false
+
+# Markdown Processing
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  enable_coderay: false
+
+# Plugins (previously gems:)
+plugins:
+  - jekyll-include-cache
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jemoji
+
+# mimic GitHub Pages with --safe
+whitelist:
+  - jekyll-include-cache
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jemoji
+
+# HTML Compression
+# - http://jch.penibelst.de/
+compress_html:
+  clippings: all
+  ignore:
+envs: development

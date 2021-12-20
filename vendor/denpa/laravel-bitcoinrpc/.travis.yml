@@ -1,0 +1,110 @@
+language: php
+
+dist: trusty
+
+php:
+  - 7.1
+  - 7.2
+  - 7.3
+  - hhvm
+  - nightly
+
+env:
+# Laravel 5.2.*
+  - ILLUMINATE_VERSION=5.2.* PHPUNIT_VERSION=~5.0
+
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+  - composer self-update
+  - composer require "illuminate/support:${ILLUMINATE_VERSION}" --no-update
+  - if [[ ! -z "$PHPUNIT_VERSION" ]]; then composer require "phpunit/phpunit:${PHPUNIT_VERSION}" --no-update; fi
+  - composer install --prefer-source --no-interaction
+
+script:
+  - mkdir -p build/logs
+  - php vendor/bin/phpunit
+  - if [[ "$TRAVIS_PULL_REQUEST" == "false" && $TRAVIS_PHP_VERSION != "hhvm" && $TRAVIS_PHP_VERSION != "nightly" && $TRAVIS_PHP_VERSION != "7.3" ]]; then ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT; fi
+
+matrix:
+  include:
+# Laravel 5.3.*
+    - php: 7.1
+      env: ILLUMINATE_VERSION=5.3.* PHPUNIT_VERSION=~5.0
+    - php: 7.2
+      env: ILLUMINATE_VERSION=5.3.* PHPUNIT_VERSION=~5.0
+    - php: 7.3
+      env: ILLUMINATE_VERSION=5.3.* PHPUNIT_VERSION=~5.0
+    - php: hhvm
+      env: ILLUMINATE_VERSION=5.3.* PHPUNIT_VERSION=~5.0
+    - php: nightly
+      env: ILLUMINATE_VERSION=5.3.* PHPUNIT_VERSION=~5.0
+# Laravel 5.4.*
+    - php: 7.1
+      env: ILLUMINATE_VERSION=5.4.* PHPUNIT_VERSION=~5.7
+    - php: 7.2
+      env: ILLUMINATE_VERSION=5.4.* PHPUNIT_VERSION=~5.7
+    - php: 7.3
+      env: ILLUMINATE_VERSION=5.4.* PHPUNIT_VERSION=~5.7
+    - php: hhvm
+      env: ILLUMINATE_VERSION=5.4.* PHPUNIT_VERSION=~5.7
+    - php: nightly
+      env: ILLUMINATE_VERSION=5.4.* PHPUNIT_VERSION=~5.7
+# Laravel 5.5.*
+    - php: 7.1
+      env: ILLUMINATE_VERSION=5.5.*
+    - php: 7.2
+      env: ILLUMINATE_VERSION=5.5.*
+    - php: 7.3
+      env: ILLUMINATE_VERSION=5.5.*
+    - php: hhvm
+      env: ILLUMINATE_VERSION=5.5.*
+    - php: nightly
+      env: ILLUMINATE_VERSION=5.5.*
+# Laravel 5.6.*
+    - php: 7.1
+      env: ILLUMINATE_VERSION=5.6.*
+    - php: 7.2
+      env: ILLUMINATE_VERSION=5.6.*
+    - php: 7.3
+      env: ILLUMINATE_VERSION=5.6.*
+    - php: nightly
+      env: ILLUMINATE_VERSION=5.6.*
+# Laravel 5.7.*
+    - php: 7.1
+      env: ILLUMINATE_VERSION=5.7.*
+    - php: 7.2
+      env: ILLUMINATE_VERSION=5.7.*
+    - php: 7.3
+      env: ILLUMINATE_VERSION=5.7.*
+    - php: nightly
+      env: ILLUMINATE_VERSION=5.7.*
+# Laravel 5.8.*
+    - php: 7.1
+      env: ILLUMINATE_VERSION=5.8.*
+    - php: 7.2
+      env: ILLUMINATE_VERSION=5.8.*
+    - php: 7.3
+      env: ILLUMINATE_VERSION=5.8.*
+    - php: nightly
+      env: ILLUMINATE_VERSION=5.8.*
+# Laravel 6.0.*
+    - php: 7.2
+      env: ILLUMINATE_VERSION=6.0.*
+    - php: 7.3
+      env: ILLUMINATE_VERSION=6.0.*
+    - php: nightly
+      env: ILLUMINATE_VERSION=6.0.*
+  allow_failures:
+    - php: hhvm
+    - php: nightly
+  fast_finish: true
+
+notifications:
+  webhooks:
+    urls:
+      - https://webhooks.gitter.im/e/42a0b0047b8d64beff4c
+    on_success: change
+    on_failure: always
+    on_start: never
