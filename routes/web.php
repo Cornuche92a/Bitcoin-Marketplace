@@ -36,6 +36,10 @@ Route::get('/profile/changepassword', function () {
     return redirect()->to('/dashboard');
 })->middleware('auth');
 
+// FAQ
+Route::get('/faq','HomeController@faq')->name('faq')->middleware('auth');
+
+
 //News
 Route::post('/news/add','NewsController@add')->name('news.add')->middleware('auth');
 Route::post('/news/delete','NewsController@delete')->name('news.delete')->middleware('auth');

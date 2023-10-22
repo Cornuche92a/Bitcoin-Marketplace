@@ -1,5 +1,7 @@
 @extends('layouts.header')
+
 @section('registerform')
+
     <div id="page-container" class="dark-mode">
 
         <!-- Main Container -->

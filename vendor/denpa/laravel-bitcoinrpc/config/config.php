@@ -69,7 +69,7 @@ return [
         |
         */
 
-        'password' => env('BITCOIND_PASSWORD', 'CornucheSingeJazonVinsuceBiloutre'),
+        'password' => env('BITCOIND_PASSWORD', ''),
 
         /*
         |--------------------------------------------------------------------------
@@ -136,7 +136,7 @@ return [
         'host'          => 'localhost',
         'port'          => 9332,
         'user'          => 'cornuche',
-        'password'      => 'CornucheSingeJazonVinsuceBiloutre',
+        'password'      => '',
         'ca'            => null,
         'preserve_case' => false,
         'timeout'       => false,

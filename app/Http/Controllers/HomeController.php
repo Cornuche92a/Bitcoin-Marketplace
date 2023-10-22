@@ -35,6 +35,10 @@ class HomeController extends Controller
 
     }
 
+    public function faq(){
+        return view('faq');
+    }
+
     public function orders(){
         $orders = \App\Models\Order::where('user_id',auth()->user()->id)->get();
         return view('orders', [

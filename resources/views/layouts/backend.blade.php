@@ -138,12 +138,12 @@
                         </a>
                         <ul class="nav-main-submenu">
                             <li class="nav-main-item">
-                                <a class="nav-main-link{{ request()->is('shop/streaming/video') ? ' active' : '' }}" href="{{ route('products.index',['categoryname' => 'Vidéo']) }}">
+                                <a class="nav-main-link{{ request()->is('shop/Vidéo') ? ' active' : '' }}" href="{{ route('products.index',['categoryname' => 'Vidéo']) }}">
                                     <i class="nav-main-link-icon fa fa-video"></i><span class="nav-main-link-name">Vidéo</span>
                                 </a>
                             </li>
                             <li class="nav-main-item">
-                                <a class="nav-main-link{{ request()->is('shop/streaming/video') ? ' active' : '' }}" href="{{ route('products.index',['categoryname' => 'Audio']) }}">
+                                <a class="nav-main-link{{ request()->is('shop/Audio') ? ' active' : '' }}" href="{{ route('products.index',['categoryname' => 'Audio']) }}">
                                     <i class="nav-main-link-icon si si-music-tone-alt"></i><span class="nav-main-link-name">Musique</span>
                                 </a>
                             </li>
@@ -156,75 +156,82 @@
                         </a>
                         <ul class="nav-main-submenu">
                             <li class="nav-main-item">
-                                <a class="nav-main-link{{ request()->is('shop/security/vpn') ? ' active' : '' }}" href="{{ route('products.index',['categoryname' => 'VPN']) }}">
+                                <a class="nav-main-link{{ request()->is('shop/VPN') ? ' active' : '' }}" href="{{ route('products.index',['categoryname' => 'VPN']) }}">
                                     <i class="nav-main-link-icon fa fa-user-secret"></i><span class="nav-main-link-name">VPN</span>
                                 </a>
                             </li>
                             <li class="nav-main-item">
-                                <a class="nav-main-link{{ request()->is('shop/security/antivirus') ? ' active' : '' }}" href="{{ route('products.index',['categoryname' => 'Antivirus']) }}">
+                                <a class="nav-main-link{{ request()->is('shop/Antivirus') ? ' active' : '' }}" href="{{ route('products.index',['categoryname' => 'Antivirus']) }}">
                                     <i class="nav-main-link-icon fa fa-bug"></i><span class="nav-main-link-name">Antivirus</span>
                                 </a>
                             </li>
                         </ul>
                     </li>
                     <li class="nav-main-item open">
-                        <a class="nav-main-link" href="{{ route('products.index',['categoryname' => 'Gaming']) }}">
+                        <a class="nav-main-link {{ request()->is('Gaming') ? ' active' : '' }}" href="{{ route('products.index',['categoryname' => 'Gaming']) }}">
                             <i class="nav-main-link-icon si si-game-controller"></i>
                             <span class="nav-main-link-name">Gaming</span>
                         </a>
                     </li>
                     <li class="nav-main-item open">
-                        <a class="nav-main-link" href="{{ route('products.index',['categoryname' => 'Cloud']) }}">
+                        <a class="nav-main-link {{ request()->is('Cloud') ? ' active' : '' }}" href="{{ route('products.index',['categoryname' => 'Cloud']) }}">
                             <i class="nav-main-link-icon fa fa-cloud"></i>
                             <span class="nav-main-link-name">Cloud</span>
                         </a>
                     </li>
                     <li class="nav-main-item open">
-                        <a class="nav-main-link" href="{{ route('products.index',['categoryname' => 'Presse']) }}">
+                        <a class="nav-main-link {{ request()->is('Presse') ? ' active' : '' }}" href="{{ route('products.index',['categoryname' => 'Presse']) }}">
                             <i class="nav-main-link-icon far fa-newspaper"></i>
                             <span class="nav-main-link-name">Presse</span>
                         </a>
                     </li>
                     <li class="nav-main-item open">
-                        <a class="nav-main-link" href="{{ route('products.index',['categoryname' => 'Bibliothèque']) }}">
+                        <a class="nav-main-link {{ request()->is('Bibliothèque') ? ' active' : '' }}" href="{{ route('products.index',['categoryname' => 'Bibliothèque']) }}">
                             <i class="nav-main-link-icon si si-book-open"></i>
                             <span class="nav-main-link-name">Bibliothèque</span>
                         </a>
                     </li>
                     <li class="nav-main-item open">
-                        <a class="nav-main-link" href="{{ route('products.index',['categoryname' => 'Magazine']) }}">
+                        <a class="nav-main-link {{ request()->is('Magazine') ? ' active' : '' }}" href="{{ route('products.index',['categoryname' => 'Magazine']) }}">
                             <i class="nav-main-link-icon fa fa-pager"></i>
                             <span class="nav-main-link-name">Magazine</span>
                         </a>
                     </li>
                     <li class="nav-main-item open">
-                        <a class="nav-main-link" href="{{ route('products.index',['categoryname' => 'Apprentissage']) }}">
+                        <a class="nav-main-link {{ request()->is('Apprentissage') ? ' active' : '' }}" href="{{ route('products.index',['categoryname' => 'Apprentissage']) }}">
                             <i class="nav-main-link-icon si si-graduation"></i>
                             <span class="nav-main-link-name">Apprentissage</span>
                         </a>
                     </li>
                     <li class="nav-main-item open">
-                        <a class="nav-main-link" href="{{ route('products.index',['categoryname' => 'Autres']) }}">
+                        <a class="nav-main-link {{ request()->is('Autres') ? ' active' : '' }}" href="{{ route('products.index',['categoryname' => 'Autres']) }}">
                             <i class="nav-main-link-icon fa fa-minus-square"></i>
                             <span class="nav-main-link-name">Autres</span>
                         </a>
                     </li>
                     <li class="nav-main-heading">SUPPORT</li>
                     <li class="nav-main-item open">
-                        <a class="nav-main-link" href="@if(auth()->user()->admin == 1){{route('supportadmin.index')}}@else{{route('support')}}@endif">
+                        <a class="nav-main-link {{ request()->is('support') ? ' active' : '' }}" href="@if(auth()->user()->admin == 1){{route('supportadmin.index')}}@else{{route('support')}}@endif">
                             <i class="nav-main-link-icon si si-bubbles"></i>
                             <span class="nav-main-link-name">Contact</span>
                         </a>
                     </li>
+                    <li class="nav-main-heading">Une question ?</li>
+                    <li class="nav-main-item">
+                        <a class="nav-main-link {{ request()->is('faq') ? ' active' : '' }}" href="/faq">
+                            <i class="nav-main-link-icon fa fa-question-circle"></i>
+                            <span class="nav-main-link-name">FAQ</span>
+                        </a>
+                    </li>
                     <li class="nav-main-heading">MON COMPTE</li>
                     <li class="nav-main-item open">
-                        <a class="nav-main-link" href="{{route('orders')}}">
+                        <a class="nav-main-link {{ request()->is('orders') ? ' active' : '' }}"  href="{{route('orders')}}">
                             <i class="nav-main-link-icon fa fa-shopping-bag"></i>
                             <span class="nav-main-link-name">Mes achats</span>
                         </a>
                     </li>
                     <li class="nav-main-item open">
-                        <a class="nav-main-link" href="{{route('payment.addfunds')}}">
+                        <a class="nav-main-link {{ request()->is('add_funds') ? ' active' : '' }}"  href="{{route('payment.addfunds')}}">
                             <i class="nav-main-link-icon si si-wallet"></i>
                             <span class="nav-main-link-name">Ajouter des fonds</span>
                         </a>

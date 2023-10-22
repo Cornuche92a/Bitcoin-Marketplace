@@ -72,13 +72,13 @@
           <div class="block-content">
             <div class="js-slider" data-dots="true">
               <div>
-                <img class="img-fluid" src="{{ asset('media/photos/photo27@2x.jpg') }}" alt="photo">
+                <img class="img-fluid" src="{{ asset('media/photos/test@example.com') }}" alt="photo">
               </div>
               <div>
-                <img class="img-fluid" src="{{ asset('media/photos/photo28@2x.jpg') }}" alt="photo">
+                <img class="img-fluid" src="{{ asset('media/photos/test@example.com') }}" alt="photo">
               </div>
               <div>
-                <img class="img-fluid" src="{{ asset('media/photos/photo29@2x.jpg') }}" alt="photo">
+                <img class="img-fluid" src="{{ asset('media/photos/test@example.com') }}" alt="photo">
               </div>
             </div>
           </div>
